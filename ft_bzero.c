@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stddef.h>
-#include <string.h> // Para memset
 
 void	ft_bzero(void *s, size_t n)
 {

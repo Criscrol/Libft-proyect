@@ -9,27 +9,30 @@
 /*   Updated: 2024/06/24 10:32:15 by csanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 #include "libft.h"
-#include <stddef.h> // Para size_t
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	destlen;
-	size_t	srclen;
 	size_t	i;
+	size_t	j;
+	size_t	dst_length;
+	size_t	src_length;
 
-	destlen = ft_strlen(dest);
-	srclen = ft_strlen(src);
-	if (size <= destlen)
-		return (size + srclen);
+	src_length = ft_strlen(src);
+	dst_length = ft_strlen(dst);
+	j = dst_length;
 	i = 0;
-	while (src[i] != '\0' && destlen + i < size - 1)
+	if (dst_length < dstsize - 1 && dstsize > 0)
 	{
-		dest[destlen + i] = src[i];
-		i++;
+		while (src[i] && dst_length + i < dstsize - 1)
+		{
+			dst[j] = src[i];
+			j++;
+			i++;
+		}
+		dst[j] = '\0';
 	}
-	dest[destlen + i] = '\0';
-	return (destlen + srclen);
+	if (dst_length >= dstsize)
+		dst_length = dstsize;
+	return (dst_length + src_length);
 }

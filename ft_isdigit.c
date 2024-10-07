@@ -9,24 +9,9 @@
 /*   Updated: 2024/09/09 11:55:44 by csanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 #include "libft.h"
 
-int	ft_isdigit(char *str)
+int	ft_isdigit(int c)
 {
-	int	i;
-	int	isdigit;
-
-	i = 0;
-	isdigit = 1;
-	while (str[i] != 0)
-	{
-		if (str[i] < '0' || str[i] > '9')
-		{
-			isdigit = 0;
-		}
-		i++;
-	}
-	return (isdigit);
+	return (c >= 48 && c <= 57);
 }

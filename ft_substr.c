@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csanchez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/10 10:39:42 by csanchez          #+#    #+#             */
-/*   Updated: 2024/09/10 10:41:20 by csanchez         ###   ########.fr       */
+/*   Created: 2024/09/12 13:20:14 by csanchez          #+#    #+#             */
+/*   Updated: 2024/09/12 13:20:16 by csanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	const char	*last;
+	unsigned int	i;
+	char			*str;
 
-	last = NULL;
-	while (*str)
+	i = 0;
+	if (start >= ft_strlen(s))
 	{
-		if (*str == (char)c)
-		{
-			last = str;
-		}
-		str++;
+		str = my_calloc(1, sizeof(char));
+		if (!str)
+			return (NULL);
+		return (str);
 	}
-	if (c == '\0')
+	if (ft_strlen(s) - start < len)
+		len = ft_strlen(s) - start;
+	str = my_calloc(sizeof(char), len + 1);
+	if (!str)
+		return (NULL);
+	while (s[start + i] && i < len)
 	{
-		return ((char *)str);
+		str[i] = s[start + i];
+		i++;
 	}
-	return ((char *)last);
+	return (str);
 }

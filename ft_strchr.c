@@ -9,22 +9,22 @@
 /*   Updated: 2024/09/17 11:33:14 by csanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	while (*str)
+	char	find;
+	int		i;
+
+	find = (unsigned char)c;
+	i = 0;
+	while (s[i])
 	{
-		if (*str == (char)c)
-		{
-			return ((char *)str);
-		}
-		str++;
+		if (s[i] == find)
+			return ((char *)s + i);
+		i++;
 	}
-	if (c == '\0')
-	{
-		return ((char *)str);
-	}
+	if (s[i] == find)
+		return ((char *)s + i);
 	return (NULL);
 }

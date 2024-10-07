@@ -9,8 +9,6 @@
 /*   Updated: 2024/09/09 12:18:59 by csanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 #include "libft.h"
 
 int	ft_isprint(int c)

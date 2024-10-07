@@ -9,10 +9,7 @@
 /*   Updated: 2024/06/19 13:47:23 by csanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 #include "libft.h"
-#include <stddef.h> // Para size_t
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
