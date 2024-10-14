@@ -49,3 +49,5 @@ int main(void)
 
     return 0;
 }*/
+
+/*La función strdup se utiliza para crear una copia dinámica de una cadena de caracteres. Toma como argumento un puntero a una cadena de origen y asigna memoria suficiente para almacenar una copia de esa cadena, incluyendo el carácter nulo terminador (\0). Luego, copia la cadena original en la nueva ubicación de memoria y devuelve un puntero a esta nueva cadena. Si la asignación de memoria falla, devuelve NULL. Es importante liberar la memoria asignada con free cuando ya no se necesite la copia*/

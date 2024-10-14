@@ -60,4 +60,6 @@ int main(void)
 */
 /* ft_strmapi aplica la función (f) a cada carácter de la cadena
 de entrada (s) y devuelve una nueva cadena (fstr) que contiene los
-caracteres transformados. */
+caracteres transformados. 
+La función ft_strmapi aplica una función a cada carácter de una cadena, utilizando el índice del carácter y el carácter en sí para generar una nueva cadena con los caracteres transformados. Devuelve la nueva cadena o NULL si hay un error en la asignación de memoria. Es útil para personalizar la modificación de cada carácter de una cadena.
+*/

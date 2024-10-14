@@ -19,6 +19,13 @@ void	ft_putstr_fd(char *s, int fd)
 	write (fd, s, ft_strlen(s));
 }
 
+/*
+int	main(void)
+{
+	ft_putstr_fd("Hello, World!\n", 1); // 1 es el descriptor de archivo para stdout
+	ft_putstr_fd("Welcome to 42!\n", 1);
+	return (0);
+}*/
 /* ft_putstr_fd escribe la cadena de caracteres s al archivo o dispositivo
 identificado por el descriptor de archivo fd. Verifica si el descriptor de
 archivo es válido y, si lo es, utiliza write para escribir la cadena. */

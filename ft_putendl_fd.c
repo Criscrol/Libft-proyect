@@ -14,17 +14,26 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	if (s != NULL)
+	if (s)
 	{
-		ft_putstr_fd(s, fd);
-		ft_putchar_fd('\n', fd);
+		while (*s)
+		{
+			write(fd, s, 1);
+			s++;
+		}
+		write(fd, "\n", 1);
 	}
 }
-/* int	main(void)
+/*
+#include <stdio.h>
+
+int	main(void)
 {
-	ft_putendl_fd("123456789", 1);
+	ft_putendl_fd("Hello, World!", 1); // 1 es el descriptor stdout
+	ft_putendl_fd("Welcome to 42!", 1);
 	return (0);
-} */
+}
+*/
 
 /* ft_putendl_fd escribe el carácter c a un archivo o dispositivo identificado
 por el descriptor de archivo fd utilizando la llamada al sistema write() y luego

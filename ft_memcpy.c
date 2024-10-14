@@ -12,33 +12,48 @@
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t len)
 {
-	size_t	i;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-	i = 0;
-	if (!dst && !src)
-		return (NULL);
-	while (i < n)
-	{
-		((char *)dst)[i] = ((const char *)src)[i];
-		i++;
-	}
-	return (dst);
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	if (d == s || len == 0)
+		return (dest);
+	while (len--)
+		*d++ = *s++;
+	return (dest);
 }
-/* int	main(void)
+
+/*
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
 {
-	char	*test_dst;
+	char dest1[20];
+	char dest2[20];
+	char src[] = "Hello, World!";
+	
+	// Copia de una cadena en un destino
+	ft_memcpy(dest1, src, 13);
+	dest1[13] = '\0'; // Asegurarse de que la cadena esté terminada en nulo
+	printf("Resultado 1: %s\n", dest1);
 
-	test_dst = malloc(20 * sizeof(char));
-	ft_memcpy(test_dst, "QWERTYUIOP", 6);
-	printf ("string copiado: %s\n", (char *)test_dst);
-	free (test_dst);
+	// Usando memcpy de la biblioteca estándar para comparación
+	memcpy(dest2, src, 13);
+	dest2[13] = '\0'; 
+	printf("Resultado 2: %s\n", dest2);
+
+	// Copiar 0 bytes
+	ft_memcpy(dest1, src, 0);
+	printf("Resultado 3 (sin cambios): %s\n", dest1);
+
+	// Copiar en el mismo arreglo (ver solapamiento)
+	ft_memcpy(src + 7, src, 5); // "Hello" a "World"
+	printf("Resultado 4 (solapamiento): %s\n", src); // Salida esperada: "HelloHello!"
+
 	return (0);
-} */
-
-/* ft_memcpy copia n bytes de datos desde la dirección de memoria
-especificada por src  a la dirección de memoria especificada por dst.
-La función garantiza la copia de datos de forma directa,
-byte por byte, y devuelve dst como puntero al bloque de memoria
-de destino. */
+}
+*/

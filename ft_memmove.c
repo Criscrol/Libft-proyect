@@ -13,36 +13,39 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*ucd;
-	char	*ucs;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-	if (src == dst)
-		return (dst);
-	ucd = (char *)dst;
-	ucs = (char *)src;
-	if (ucs <= ucd)
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	if (d == s || len == 0)
+		return (dest);
+	if (d < s)
 	{
-		while (0 < len)
-		{
-			len--;
-			ucd[len] = ucs[len];
-		}
+		while (len--)
+			*d++ = *s++;
 	}
 	else
-		ft_memcpy(dst, src, len);
-	return (dst);
+	{
+		d += len;
+		s += len;
+		while (len--)
+			*(--d) = *(--s);
+	}
+	return (dest);
 }
 
-/* int	main(void)
-{
-	char	*test_dst;
+/* 
+#include <stdio.h>
 
-	test_dst = malloc(20 * sizeof(char));
-	ft_memset(test_dst, "QWERTYUIOP", 6);
-	printf ("string copiado: %s\n", (char *)test_dst);
-	free (test_dst);
+int	main(void)
+{
+	char str[] = "Hello, World!";
+	ft_memmove(str + 7, str, 5);
+	printf("Resultado: %s\n", str);
 	return (0);
-} */
+}
+*/
 
 /* ft_memmove() realiza una copia segura de len bytes de datos de src a dst,
 teniendo en cuenta la posible superposición de memoria entre las regiones
