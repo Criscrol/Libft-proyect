@@ -14,11 +14,11 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (s == NULL)
+	if (s == NULL || fd < 0)
 		return ;
-	while (*s != '\0')
-	{
-		write(fd, s, 1);
-		s++;
-	}
+	write (fd, s, ft_strlen(s));
 }
+
+/* ft_putstr_fd escribe la cadena de caracteres s al archivo o dispositivo
+identificado por el descriptor de archivo fd. Verifica si el descriptor de
+archivo es válido y, si lo es, utiliza write para escribir la cadena. */

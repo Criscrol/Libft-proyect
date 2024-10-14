@@ -11,14 +11,14 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*s3;
 	size_t	i;
 
 	if (!s1 || !s2)
 		return (NULL);
-	s3 = (char *)my_calloc(sizeof(*s3), (ft_strlen(s1) + ft_strlen(s2) + 1));
+	s3 = (char *)ft_calloc(1, (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!s3)
 		return (NULL);
 	i = 0;
@@ -26,5 +26,25 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		s3[i++] = *s1++;
 	while (*s2)
 		s3[i++] = *s2++;
+	s3[i] = '\0';
 	return (s3);
 }
+
+/*
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	char	*test_str;
+
+	test_str = ft_strjoin("QWERTY", "ASDFGH");
+	printf ("%s\n", test_str);
+	free (test_str);
+	return (0);
+}*/
+
+/* ft_strjoin une las dos cadenas s1 y s2 en una nueva cadena, reservando
+memoria para la cadena resultante. Copia s1 y s2 en s3, y agrega un
+carácter nulo al final. Si alguna cadena de entrada es nula o si la
+asignación de memoria falla, la función devuelve NULL. */

@@ -11,44 +11,61 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-static size_t	num_len(int n)
+size_t	get_size(int n)
 {
-	size_t	len;
+	size_t	size;
 
-	len = (n <= 0);
+	if (n > 0)
+		size = 0;
+	else
+		size = 1;
 	while (n)
 	{
 		n /= 10;
-		len++;
+		size++;
 	}
-	return (len);
+	return (size);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*str;
-	size_t	len;
-	int		sign;
+	long	num;
+	size_t	size;
 
-	len = num_len(n);
-	str = (char *)malloc(len + 1);
+	num = n;
+	size = get_size(n);
+	if (n < 0)
+		num *= -1;
+	str = (char *)malloc(size + 1);
 	if (!str)
 		return (NULL);
-	str[len] = '\0';
-	sign = (n < 0);
-	if (n == 0)
-		str[0] = '0';
-	if (sign && n == INT_MIN)
+	*(str + size--) = '\0';
+	while (num > 0)
 	{
-		str[--len] = '8';
-		n /= 10;
+		*(str + size--) = num % 10 + '0';
+		num /= 10;
 	}
-	if (sign)
-		n = -n;
-	while (n > 0)
-		str[--len] = (n % 10) + '0';
-	n /= 10;
-	if (sign)
-		str[--len] = '-';
+	if (size == 0 && str[1] == '\0')
+		*(str + size) = '0';
+	else if (size == 0 && str[1])
+		*(str + size) = '-';
 	return (str);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	*result;
+
+	result = ft_itoa(-665656);
+	printf("%s\n", result);
+	free(result);
+	return (0);
+}
+*/
+/* ft_itoa convierte un número entero en una cadena de caracteres,
+manejando casos especiales y números negativos, y asignando memoria
+dinámica para la cadena resultante. Devuelve un puntero a la cadena
+resultante. */

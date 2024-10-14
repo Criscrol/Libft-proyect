@@ -28,3 +28,6 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s + i);
 	return (NULL);
 }
+/* ft_strchr busca un carácter c en la cadena s y devuelve un puntero
+a su primera ocurrencia si se encuentra.
+Si c no está en s, la función devuelve NULL. */

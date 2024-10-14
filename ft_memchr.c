@@ -13,13 +13,36 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const char	*sc;
-	size_t		i;
+	size_t			i;
+	unsigned char	*str;
+	unsigned char	ch;
 
-	sc = (const char *)s;
-	i = -1;
-	while (++i < n)
-		if (*(sc + i) == (char)c)
-			return ((void *)sc + i);
+	i = 0;
+	str = (unsigned char *)s;
+	ch = (unsigned char)c;
+	while (i < n)
+	{
+		if (str[i] == ch)
+			return (&str[i]);
+		i++;
+	}
 	return (NULL);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	void	*result;
+
+	result = ft_memchr("13766", '3', 5);
+	if (result != NULL)
+		printf ("Encontrado: %c\n", *(char *)result);
+	else
+		printf ("Carácter no encontrado\n");
+	return (0);
+}
+*/
+/* ft_memchr busca un carácter en una secuencia de bytes
+dentro de una región de memoria, y devuelve un puntero al primer caso encontrado
+o NULL si no lo encuentra. */

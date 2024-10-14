@@ -11,64 +11,78 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-static int	count_words(const char *str, char c)
+#include <stdlib.h>
+#include <string.h>
+
+static char	**free_split(char **split, unsigned int k)
 {
-	int	i;
-	int	trigger;
+	unsigned int	i;
 
 	i = 0;
-	trigger = 0;
-	while (*str)
+	while (i < k && split[i])
 	{
-		if (*str != c && trigger == 0)
-		{
-			trigger = 1;
-			i++;
-		}
-		else if (*str == c)
-			trigger = 0;
-		str++;
+		free(split[i]);
+		i++;
 	}
-	return (i);
+	free(split);
+	return (NULL);
 }
 
-static char	*word_dup(const char *str, int start, int finish)
+static size_t	word_len(const char *word, char c)
 {
-	char	*word;
-	int		i;
+	size_t	len;
 
-	i = 0;
-	word = malloc((finish - start + 1) * sizeof(char));
-	while (start < finish)
-		word[i++] = str[start++];
-	word[i] = '\0';
-	return (word);
+	len = 0;
+	while (word[len] && word[len] != c)
+		len++;
+	return (len);
+}
+
+static unsigned int	count_words(const char *s, char c)
+{
+	unsigned int	count;
+
+	count = 0;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			count++;
+			s++;
+		}
+		while (*s && *s != c)
+			s++;
+		while (*s && *s == c)
+			s++;
+	}
+	return (count);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
-	size_t	j;
-	int		index;
-	char	**split;
+	char			**split;
+	unsigned int	index ;
+	unsigned int	k;
 
-	split = malloc((count_words(s, c) + 1) * sizeof(char *));
-	if (!s || !split)
+	index = 0;
+	k = 0;
+	if (!s)
 		return (NULL);
-	i = 0;
-	j = 0;
-	index = -1;
-	while (i <= ft_strlen(s))
+	split = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!split)
+		return (NULL);
+	while (s[index] && s[index] == c)
+		index++;
+	while (s[index])
 	{
-		if (s[i] != c && index < 0)
-			index = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
-		{
-			split[j++] = word_dup(s, index, i);
-			index = -1;
-		}
-		i++;
+		split[k] = ft_substr(s, index, word_len(s + index, c));
+		if (!split[k])
+			return (free_split(split, k));
+		k++;
+		index += word_len(s + index, c);
+		while (s[index] && s[index] == c)
+			index++;
 	}
-	split[j] = 0;
+	split[k] = NULL;
 	return (split);
 }

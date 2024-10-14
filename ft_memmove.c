@@ -13,27 +13,39 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int	i;
+	char	*ucd;
+	char	*ucs;
 
-	if (!dst && !src)
-		return (NULL);
-	if (dst > src)
+	if (src == dst)
+		return (dst);
+	ucd = (char *)dst;
+	ucs = (char *)src;
+	if (ucs <= ucd)
 	{
-		i = (int)len - 1;
-		while (i >= 0)
+		while (0 < len)
 		{
-			*(char *)(dst + i) = *(char *)(src + i);
-			i--;
+			len--;
+			ucd[len] = ucs[len];
 		}
 	}
 	else
-	{
-		i = 0;
-		while (i < (int)len)
-		{
-			*(char *)(dst + i) = *(char *)(src + i);
-			i++;
-		}
-	}
+		ft_memcpy(dst, src, len);
 	return (dst);
 }
+
+/* int	main(void)
+{
+	char	*test_dst;
+
+	test_dst = malloc(20 * sizeof(char));
+	ft_memset(test_dst, "QWERTYUIOP", 6);
+	printf ("string copiado: %s\n", (char *)test_dst);
+	free (test_dst);
+	return (0);
+} */
+
+/* ft_memmove() realiza una copia segura de len bytes de datos de src a dst,
+teniendo en cuenta la posible superposición de memoria entre las regiones
+de origen y destino. Si se detecta superposición, la copia se realiza de atrás
+hacia adelante para evitar problemas de superposición. Si no hay superposición
+se llama a ft_memcpy() para realizar la copia normalmente. */

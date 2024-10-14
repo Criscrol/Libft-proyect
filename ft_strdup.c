@@ -14,12 +14,38 @@
 char	*ft_strdup(const char *s1)
 {
 	char	*s2;
-	size_t	size;
 
-	size = ft_strlen(s1) + 1;
-	s2 = (char *)malloc(size);
+	if (!s1)
+		return (NULL);
+	s2 = malloc(strlen(s1) + 1);
 	if (!s2)
 		return (NULL);
-	ft_memcpy(s2, s1, ft_strlen(s1) + 1);
-	return (s2);
+	return (memcpy(s2, s1, strlen(s1) + 1));
 }
+
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+char *ft_strdup(const char *s1);
+
+int main(void)
+{
+    const char *original = "Hola, mundo!";
+    char *duplicate;
+
+    // Duplicar la cadena
+    duplicate = ft_strdup(original);
+    if (duplicate)
+    {
+        printf("Cadena original: \"%s\"\n", original);
+        printf("Cadena duplicada: \"%s\"\n", duplicate);
+        free(duplicate); // Liberar la memoria asignada
+    }
+    else
+    {
+        printf("Error al asignar memoria.\n");
+    }
+
+    return 0;
+}*/

@@ -13,12 +13,24 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
-
 	if (n == 0)
 		return (0);
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n - 1)
-		++i;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	while (n-- && (*s1 || *s2))
+	{
+		if (*s1 != *s2)
+			return ((unsigned char)*s1 - (unsigned char)*s2);
+		s1++;
+		s2++;
+	}
+	return (0);
 }
+
+/* int	main(void)
+{
+	printf ("Diferencia: %d.\n", ft_strncmp ("123456789", "123456789", 9));
+	return (0);
+} */
+
+/* ft_strncmp compara dos cadenas (s1 y s2) hasta un máximo de
+n caracteres. Devuelve 0 si las cadenas son iguales en esos caracteres,
+1 si s1 es mayor que s2, o -1 si s1 es menor que s2. */
