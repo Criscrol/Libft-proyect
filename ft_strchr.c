@@ -28,39 +28,3 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s + i);
 	return (NULL);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	const char *str = "Hello, World!";
-	char ch = 'o';
-	char *result;
-
-	result = ft_strchr(str, ch);
-	if (result)
-		printf("Encontrado: '%c' en la posición: %ld\n", *result, result - str);
-	else
-		printf("Caracter '%c' no encontrado.\n", ch);
-
-	ch = 'x';
-	result = ft_strchr(str, ch);
-	if (result)
-		printf("Encontrado: '%c' en la posición: %ld\n", *result, result - str);
-	else
-		printf("Caracter '%c' no encontrado.\n", ch);
-
-	// Prueba con el carácter nulo
-	ch = '\0';
-	result = ft_strchr(str, ch);
-	if (result)
-		printf("Encontrado el carácter nulo en la posición: %ld\n", result - str);
-	else
-		printf("Caracter '%c' no encontrado.\n", ch);
-
-	return (0);
-}
-*/
-/* ft_strchr busca un carácter c en la cadena s y devuelve un puntero
-a su primera ocurrencia si se encuentra.
-Si c no está en s, la función devuelve NULL. */

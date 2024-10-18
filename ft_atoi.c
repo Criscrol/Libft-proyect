@@ -33,21 +33,3 @@ int	ft_atoi(const char *str)
 	}
 	return (num * neg);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	const char	*test_str;
-	int	result;
-
-	test_str = "	 	  -2147483648";
-	result = ft_atoi(test_str);
-	printf ("\n%d\n\n", result);
-	return (0);
-} 
-*/
-/* ft_atoi convierte una cadena (de char) que representa un número entero
-(opcionalmente con un signo + ó - y espacios iniciales) en su
-valor entero (int) equivalente, manejando adecuadamente los signos y
-espacios en blanco. */

@@ -28,38 +28,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	return (str);
 }
-/*
-#include <stdio.h>
-#include <stdlib.h>
-
-char *ft_strmapi(const char *s, char (*f)(unsigned int, char));
-
-char example_function(unsigned int index, char c)
-{
-    return c + index; // Simplemente suma el índice al carácter
-}
-
-int main(void)
-{
-    const char *str = "Hola";
-    char *result;
-
-    result = ft_strmapi(str, example_function);
-    if (result)
-    {
-        printf("Resultado de ft_strmapi: \"%s\"\n", result);
-        free(result); // Liberar la memoria asignada
-    }
-    else
-    {
-        printf("Error al asignar memoria.\n");
-    }
-
-    return 0;
-}
-*/
-/* ft_strmapi aplica la función (f) a cada carácter de la cadena
-de entrada (s) y devuelve una nueva cadena (fstr) que contiene los
-caracteres transformados. 
-La función ft_strmapi aplica una función a cada carácter de una cadena, utilizando el índice del carácter y el carácter en sí para generar una nueva cadena con los caracteres transformados. Devuelve la nueva cadena o NULL si hay un error en la asignación de memoria. Es útil para personalizar la modificación de cada carácter de una cadena.
-*/

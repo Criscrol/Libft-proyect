@@ -52,20 +52,3 @@ char	*ft_itoa(int n)
 		*(str + size) = '-';
 	return (str);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char	*result;
-
-	result = ft_itoa(-665656);
-	printf("%s\n", result);
-	free(result);
-	return (0);
-}
-*/
-/* ft_itoa convierte un número entero en una cadena de caracteres,
-manejando casos especiales y números negativos, y asignando memoria
-dinámica para la cadena resultante. Devuelve un puntero a la cadena
-resultante. */

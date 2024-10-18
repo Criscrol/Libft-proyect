@@ -17,16 +17,3 @@ int	ft_isalnum(int c)
 		return (1);
 	return (0);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	if (ft_isalnum('$'))
-		printf("El carácter SÍ es alfanumérico\n");
-	else
-		printf("El carácter NO es alfanumérico\n");
-	return (0);
-}
-*/
-/* ft_isalnum verifica si un carácter es alfanumérico. */

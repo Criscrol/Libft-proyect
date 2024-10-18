@@ -17,16 +17,3 @@ int	ft_isdigit(int c)
 		return (1);
 	return (0);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	if (ft_isdigit('A'))
-		printf ("El carácter SÍ es un dígito\n");
-	else
-		printf ("El carácter NO es un dígito\n");
-	return (0);
-}
-*/
-/* ft_isdigit comprueba si un carácter es o no es un dígito. */

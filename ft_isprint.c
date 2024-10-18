@@ -17,16 +17,3 @@ int	ft_isprint(int c)
 		return (1);
 	return (0);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	if (ft_isprint('5'))
-		printf ("El carácter SÍ es imprimible\n");
-	else
-		printf ("El carácter NO es imprimible\n");
-	return (0);
-}
-*/
-/* ft_isprint evalúa si un carácter es imprimible. */
