@@ -28,3 +28,15 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	int	diferencia;
+
+	diferencia = ft_memcmp("22345", "12345", 5);
+	printf ("La diferencia es %d\n", diferencia);
+	return (0);
+}
+*/

@@ -28,3 +28,18 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	void	*result;
+
+	result = ft_memchr("3131a", 'a',  4);
+	if (result != NULL)
+		printf ("Encontrado: %c\n", *(char *)result);
+	else
+		printf ("Carácter no encontrado\n");
+	return (0);
+}
+*/

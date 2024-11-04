@@ -17,3 +17,14 @@ int	ft_isalpha(int c)
 		return (1);
 	return (0);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	if (ft_isalpha('!'))
+		printf("El caracter SÍ es alfabético\n");
+	else
+		printf("El caracter NO es alfabético\n");
+	return(0);
+}*/

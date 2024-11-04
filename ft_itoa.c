@@ -52,3 +52,43 @@ char	*ft_itoa(int n)
 		*(str + size) = '-';
 	return (str);
 }
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+// Declaración de la función ft_itoa
+char *ft_itoa(int n);
+
+int main(void)
+{
+    // Casos de prueba
+    int test1 = 0;
+    int test2 = 12345;
+    int test3 = -12345;
+    int test4 = 2147483647;   // Valor máximo de un int
+    int test5 = -2147483648;  // Valor mínimo de un int
+
+    // Llamada a la función y muestra de resultados
+    char *result1 = ft_itoa(test1);
+    char *result2 = ft_itoa(test2);
+    char *result3 = ft_itoa(test3);
+    char *result4 = ft_itoa(test4);
+    char *result5 = ft_itoa(test5);
+
+    // Imprimir los resultados
+    printf("ft_itoa(%d) = %s\n", test1, result1);
+    printf("ft_itoa(%d) = %s\n", test2, result2);
+    printf("ft_itoa(%d) = %s\n", test3, result3);
+    printf("ft_itoa(%d) = %s\n", test4, result4);
+    printf("ft_itoa(%d) = %s\n", test5, result5);
+
+    // Liberar la memoria asignada
+    free(result1);
+    free(result2);
+    free(result3);
+    free(result4);
+    free(result5);
+
+    return 0;
+}
+*/

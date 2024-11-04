@@ -25,3 +25,41 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i--;
 	return (ft_substr(s1, 0, i + 1));
 }
+/*
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char *ft_strtrim(const char *s1, const char *set);
+
+int main(void)
+{
+    const char *str = "rrHola, mundo!   "; // Cadena con espacios
+    const char *set = "r"; // Conjunto de caracteres a eliminar (espacio)
+
+    char *trimmed_str = ft_strtrim(str, set); // Llamar a ft_strtrim
+
+    // Comprobar si la función devolvió NULL
+    if (trimmed_str == NULL)
+    {
+        printf("Error al realizar el trim.\n");
+        return 1; // Salir si hubo un error
+    }
+
+    // Imprimir la cadena original y la resultante
+    printf("Cadena original: '%s'\n", str);
+    printf("Cadena trimada: '%s'\n", trimmed_str);
+
+    // Liberar la memoria asignada
+    free(trimmed_str);
+
+    return 0;
+}
+*/
+/*
+La función ft_strtrim elimina todos los caracteres del conjunto especificado 
+(definido por la cadena set) se encuentran al inicio y al final de la cadena s1. 
+Retorna una nueva cadena con los caracteres trimados, 
+manteniendo intacto el contenido del medio de s1. 
+Si la cadena resultante es vacía o si ocurre un error, puede devolver NULL
+*/

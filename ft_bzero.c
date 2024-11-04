@@ -15,3 +15,19 @@ void	ft_bzero(void *s, size_t n)
 {
 	ft_memset(s, 0, n);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	*test_str;
+
+	test_str = (char *)malloc(26 * sizeof(char));
+	ft_strlcpy(test_str, "Abraxas", 12);
+	printf ("test_str inicial: %s\n", test_str);
+	ft_bzero(test_str, 10);
+	printf ("test_str final: %s\n", test_str);
+	free(test_str);
+	return (0);
+}
+*/

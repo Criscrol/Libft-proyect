@@ -36,3 +36,37 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		dst_length = dstsize;
 	return (dst_length + src_length);
 }
+/*
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+size_t ft_strlcat(char *dst, const char *src, size_t size);
+
+int main(void)
+{
+    char dst[20] = "Hola";      // Cadena destino con espacio sufi
+    const char *src = " Mundo"; // Cadena fuente
+
+    // Usar ft_strlcat para concatenar
+    size_t result = ft_strlcat(dst, src, sizeof(dst));
+
+    // Imprimir los resultados
+    printf("Cadena resultante: %s\n", dst);
+    printf("Longitud total que se intentó crear: %zu\n", result);
+
+    return 0;
+}
+*/
+/*
+La ft strlcat se utiliza para concatenar 2 cadenas de char de manera segura. 
+Toma como arg el destino de la concatenación, la fuente que se va a añadir 
+y el tamaño total del buffer de destino. 
+Asegura que no se exceda el tamaño del buffer al copiar la cadena fuente, 
+añadiendo un carácter nulo al final de la cadena resultante. 
+Retorna la longitud total de la cadena que se intentó crear, es decir, 
+la longitud de la cadena de dest original más la long de la cadena fuente. 
+Si el tamaño del buffer es menor o igual a la longitud de la cadena de destino, 
+no se realizan modificaciones 
+y la cadena de destino se garantiza que estará correctamente terminada 
+con un carácter nulo.*/
